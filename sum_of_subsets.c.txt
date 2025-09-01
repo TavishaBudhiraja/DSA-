@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+int main() {
+    int n, i, j;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    int total = pow(2, n);   
+    printf("Sum of all subsets: ");
+    for(i = 0; i < total; i++) {
+        int sum = 0;
+        for(j = 0; j < n; j++) {
+            if(i & (1 << j)) {
+                sum += arr[j];
+            }
+        }
+        printf("%d ", sum);
+    }
+    printf("\n");
+    return 0;
+}
